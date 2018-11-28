@@ -2,6 +2,7 @@ package com.test.birds;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,9 +32,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         BirdSet animal = mData.get(position);
-        holder.fBird.setText(animal.fBird);
-        holder.sBird.setText(animal.sBird);
-        holder.tBird.setText(animal.tBird);
+
+        holder.fBird.setText(String.valueOf(animal.fBird));
+        holder.sBird.setText(String.valueOf(animal.sBird));
+        holder.tBird.setText(String.valueOf(animal.tBird));
+        Log.d("Birds", "onBindViewHolder: ");
     }
 
     // total number of rows

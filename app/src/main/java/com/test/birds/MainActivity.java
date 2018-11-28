@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 double P3 = Double.parseDouble(((TextInputEditText)findViewById(R.id.tBirdPrice)).getText().toString());
                 Log.v("Birds", "error5.5");
                 double N1, N2, N3;
+
                 for (N3 = 1; N3 * P3 < TP && N3 < TN; N3++) {
                     N2 = (TP - TN * P1 - N3 * (P3 - P1)) / (P2 - P1);
                     N1 = TN - N2 - N3;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
                 mLayoutManager = new LinearLayoutManager(context);
                 mRecyclerView.setLayoutManager(mLayoutManager);
+
                 mAdapter = new MyAdapter(context,mDataset);
                 mRecyclerView.setAdapter(mAdapter);
 

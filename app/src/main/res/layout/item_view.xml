@@ -7,17 +7,20 @@
     <TextView
         android:id="@+id/fBird"
         android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         />
     <TextView
         android:id="@+id/sBird"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         />
     <TextView
         android:id="@+id/tBird"
+        android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
