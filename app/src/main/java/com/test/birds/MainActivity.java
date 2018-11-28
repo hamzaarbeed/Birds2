@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> mDataset = new ArrayList<String>();
+                ArrayList<BirdSet> mDataset = new ArrayList<>();
 
                 int TN = Integer.parseInt(((TextInputEditText)findViewById(R.id.totalBirds)).getText().toString());
 
@@ -42,27 +42,18 @@ public class MainActivity extends AppCompatActivity {
                     N2 = (TP - TN * P1 - N3 * (P3 - P1)) / (P2 - P1);
                     N1 = TN - N2 - N3;
                     if (N2 % 1 == 0 && N2 > 0 && N1 % 1 == 0 && N1 > 0)
-                        mDataset.add((int) N1 + " ," + (int) N2 + " ," + (int) N3);
+                        mDataset.add(new BirdSet((int) N1 , (int) N2 , (int) N3));
                 }
                 if (mDataset.size() == 0)
-                    mDataset.add("There is no result");
+                    mDataset.add(new BirdSet( 0,0,0));
                 mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-                // use this setting to improve performance if you know that changes
-                // in content do not change the layout size of the RecyclerView
-                Log.v("Birds", "error7");
-                // use a linear layout manager
                 mLayoutManager = new LinearLayoutManager(context);
                 mRecyclerView.setLayoutManager(mLayoutManager);
-
-                // specify an adapter (see also next example)
-                Log.v("Birds", "error");
                 mAdapter = new MyAdapter(context,mDataset);
-                Log.v("Birds", "error2");
                 mRecyclerView.setAdapter(mAdapter);
-                Log.v("Birds", "error3");
 
             }
         });
     }
+
 }

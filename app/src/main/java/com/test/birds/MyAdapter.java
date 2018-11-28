@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private ArrayList<String> mData=new ArrayList<String>();
+    private ArrayList<BirdSet> mData=new ArrayList<>();
     private LayoutInflater mInflater;
 
     // data is passed into the constructor
-    MyAdapter(Context context, ArrayList<String> data) {
+    MyAdapter(Context context, ArrayList<BirdSet> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -30,8 +30,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        BirdSet animal = mData.get(position);
+        holder.fBird.setText(animal.fBird);
+        holder.sBird.setText(animal.sBird);
+        holder.tBird.setText(animal.tBird);
     }
 
     // total number of rows
@@ -43,11 +45,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView myTextView;
-
+        TextView fBird;
+        TextView sBird;
+        TextView tBird;
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.textView);
+            fBird = itemView.findViewById(R.id.fBird);
+            sBird = itemView.findViewById(R.id.sBird);
+            tBird = itemView.findViewById(R.id.tBird);
+
         }
 
     }
